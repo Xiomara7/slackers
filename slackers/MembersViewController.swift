@@ -96,6 +96,9 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.name.text = user.valueForKey("real_name") as? String
         cell.username.text = user.valueForKey("username") as? String
         
+        let colorString = user.valueForKey("theme_color") as! String
+        cell.view.layer.borderColor = UIColor(hexString: colorString).CGColor
+        
         return cell
     }
     
