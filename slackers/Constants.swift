@@ -26,6 +26,9 @@ let PROFILE_ENTITY = "Profile"
 
 let IMG_BG = "background_img"
 let IMG_CLOSE = "close-icon"
+let IMG_EMAIL = "envelope-icon"
+let IMG_SKYPE = "chats-icon"
+let IMG_PHONE = "bell-icon"
 
 // Sizes
 

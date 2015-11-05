@@ -28,9 +28,6 @@ class DataManager {
                 userObject.theme_color = String(member["color"])
                 userObject.real_name = String(member["real_name"])
                 
-                print(String(member["profile"]["skype"]))
-                print(String(member["profile"]["phone"]))
-                
                 profileObject.skype = String(member["profile"]["skype"])
                 profileObject.phone = String(member["profile"]["phone"])
                 profileObject.title = String(member["profile"]["title"])

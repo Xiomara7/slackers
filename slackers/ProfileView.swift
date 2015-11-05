@@ -17,11 +17,16 @@ class ProfileView: UIView {
     var username: UILabel!
     var name: UILabel!
     var profileImage: UIImageView!
+    var closeButton: UIButton!
+    
     var skype: UILabel!
     var phone: UILabel!
     var email: UILabel!
     var title: UILabel!
-    var closeButton: UIButton!
+    
+    var skypeIcon: UIImageView!
+    var phoneIcon: UIImageView!
+    var emailIcon: UIImageView!
     
     init() {
         super.init(frame: CGRectZero)
@@ -67,10 +72,42 @@ class ProfileView: UIView {
         self.addSubview(email)
         
         phone = UILabel(frame: CGRectZero)
+        phone.font = UIFont(name: normalFontName, size: 14.0)
         self.addSubview(phone)
         
         skype = UILabel(frame: CGRectZero)
+        skype.font = UIFont(name: normalFontName, size: 14.0)
         self.addSubview(skype)
+        
+        skypeIcon = UIImageView(image: UIImage(named: IMG_SKYPE))
+
+        skypeIcon.autoSetDimension(.Width, toSize: 24.0)
+        skypeIcon.autoSetDimension(.Height, toSize: 24.0)
+        
+        skypeIcon.contentMode = UIViewContentMode.ScaleAspectFit
+        skypeIcon.layer.masksToBounds = true
+        
+        self.addSubview(skypeIcon)
+        
+        emailIcon = UIImageView(image: UIImage(named: IMG_EMAIL))
+
+        emailIcon.autoSetDimension(.Width, toSize: 24.0)
+        emailIcon.autoSetDimension(.Height, toSize: 24.0)
+        
+        emailIcon.contentMode = UIViewContentMode.ScaleAspectFit
+        emailIcon.layer.masksToBounds = true
+        
+        self.addSubview(emailIcon)
+        
+        phoneIcon = UIImageView(image: UIImage(named: IMG_PHONE))
+        
+        phoneIcon.autoSetDimension(.Width, toSize: 24.0)
+        phoneIcon.autoSetDimension(.Height, toSize: 24.0)
+        
+        phoneIcon.contentMode = UIViewContentMode.ScaleAspectFit
+        phoneIcon.layer.masksToBounds = true
+        
+        self.addSubview(phoneIcon)
         
         closeButton = UIButton(frame: CGRectZero)
         closeButton.setImage(UIImage(named: IMG_CLOSE), forState: .Normal)
@@ -102,14 +139,24 @@ class ProfileView: UIView {
             title.autoPinEdge(.Top, toEdge: .Bottom, ofView: username, withOffset: 5.0)
             title.autoAlignAxis(.Vertical, toSameAxisOfView: username)
             
+            emailIcon.autoPinEdge(.Top, toEdge: .Bottom, ofView: title, withOffset: 44.0)
+            emailIcon.autoPinEdgeToSuperviewEdge(.Left, withInset: 20.0)
+            
             email.autoPinEdge(.Top, toEdge: .Bottom, ofView: title, withOffset: 44.0)
-            email.autoPinEdgeToSuperviewEdge(.Left, withInset: 20.0)
+            email.autoPinEdge(.Left, toEdge: .Right, ofView: emailIcon, withOffset: 5.0)
+            
+            phoneIcon.autoPinEdge(.Top, toEdge: .Bottom, ofView: email, withOffset: 10.0)
+            phoneIcon.autoPinEdgeToSuperviewEdge(.Left, withInset: 20.0)
             
             phone.autoPinEdge(.Top, toEdge: .Bottom, ofView: email, withOffset: 10.0)
-            phone.autoPinEdgeToSuperviewEdge(.Left, withInset: 20.0)
+            phone.autoPinEdge(.Left, toEdge: .Right, ofView: phoneIcon, withOffset: 5.0)
             
+            skypeIcon.autoPinEdge(.Top, toEdge: .Bottom, ofView: phone, withOffset: 10.0)
+            skypeIcon.autoPinEdgeToSuperviewEdge(.Left, withInset: 20.0)
+
             skype.autoPinEdge(.Top, toEdge: .Bottom, ofView: phone, withOffset: 10.0)
-            skype.autoPinEdgeToSuperviewEdge(.Left, withInset: 20.0)
+            skype.autoPinEdge(.Left, toEdge: .Right, ofView: skypeIcon, withOffset: 5.0)
+            
             
             shouldUpdateConstraints = false
         }
