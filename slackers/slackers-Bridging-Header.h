@@ -7,4 +7,5 @@
 //
 
 #import <AFNetworking/AFNetworking.h>
+#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #import <PureLayout/PureLayout.h>

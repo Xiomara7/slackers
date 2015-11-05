@@ -25,6 +25,7 @@ class APIClient: AFHTTPRequestOperationManager {
     init() {
         super.init(baseURL: NSURL(string: Config.URLString))
         
+        AFNetworkActivityIndicatorManager.sharedManager().enabled = true
         self.responseSerializer = AFHTTPResponseSerializer()
         self.responseSerializer.acceptableContentTypes = Set(["application/json", "text/html"])
     }
@@ -37,7 +38,7 @@ class APIClient: AFHTTPRequestOperationManager {
 extension APIClient {
     
     func authTeam(token: String, completion: ((success: Bool, error: NSError?) -> Void)?) {
-        let path = authPath
+        let path = AUTH_PATH
         let parameters = ["token": token]
         
         postPath(path, parameters: parameters) { (operation, response) in
@@ -55,7 +56,7 @@ extension APIClient {
     }
     
     func getUsers(token: String, completion: ((success: Bool, error: NSError?) -> Void)?) {
-        let path = usersPath
+        let path = USERS_PATH
         let parameters = ["token": token]
         
         postPath(path, parameters: parameters) { (operation, response) in
@@ -65,6 +66,10 @@ extension APIClient {
                 }
                 return
             }
+            
+            let members = response.json["members"]
+            print(members)
+            DataManager.shared.saveMembers(members)
             
             if let block = completion {
                 block(success: true, error: nil)

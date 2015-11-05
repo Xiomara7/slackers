@@ -9,8 +9,11 @@
 import Foundation
 
 let productionUrl = "https://slack.com/api/"
-let authPath = "auth.test"
-let usersPath = "users.list"
+
+let TOKEN = "xoxp-4698769766-4698769768-4898023905-7a1afa"
+
+let AUTH_PATH = "auth.test"
+let USERS_PATH = "users.list"
 
 let DELEGATE = UIApplication.sharedApplication().delegate as! AppDelegate
 

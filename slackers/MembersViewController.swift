@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class MembersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var tableView: UITableView!
+    var users = [NSManagedObject]()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -18,6 +20,35 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func loadView() {
+        super.loadView()
+        
+        APIClient.shared.authTeam(TOKEN) { (success, error) -> Void in
+            if (success) {
+                APIClient.shared.getUsers(TOKEN) { (success, error) -> Void in
+                    self.tableView.reloadData()
+                    self.tableView.reloadInputViews()
+                }
+            }
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let fetchRequest = NSFetchRequest(entityName: USER_ENTITY)
+        
+        do {
+            let results =
+            try DELEGATE.managedObjectContext.executeFetchRequest(fetchRequest)
+            
+            users = results as! [NSManagedObject]
+            
+        } catch let error as NSError {
+            print("\(FETCH_ERR)\(error),\(error.userInfo)")
+        }
     }
     
     override func viewDidLoad() {
@@ -41,7 +72,7 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
     // Mark: - TableView DataSource & Delegate Methods
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return users.count
     }
     
     func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
@@ -60,7 +91,10 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell = MembersViewCell(reuseIdentifier: defaultReuseIdentifier)
         }
         
-        cell.name.text = "Xiomara"
+        let user = users[indexPath.row]
+        
+        cell.name.text = user.valueForKey("real_name") as? String
+        cell.username.text = user.valueForKey("username") as? String
         
         return cell
     }
