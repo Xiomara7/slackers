@@ -44,7 +44,9 @@ let defaultReuseIdentifier = "Cell"
 let FETCH_ERR = "Could not fetch "
 let SAVE_ERR = "Failure to save context "
 
+// messages
 
+let LOADING_MSG = "Hire Me, Slack - added by @xiomara"
 
 
 

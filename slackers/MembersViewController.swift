@@ -12,7 +12,10 @@ import CoreData
 class MembersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var tableView: UITableView!
-    var users = [NSManagedObject]()
+    var users = [User!]()
+
+    var loadingImage: UIImageView!
+    var refreshControl:UIRefreshControl!
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -46,7 +49,7 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
             let results =
             try DELEGATE.managedObjectContext.executeFetchRequest(fetchRequest)
             
-            users = results as! [NSManagedObject]
+            users = results as! [User!]
             
         } catch let error as NSError {
             print("\(FETCH_ERR)\(error),\(error.userInfo)")
@@ -55,6 +58,9 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        self.title = defaults.valueForKey("appTitle") as? String
         
         tableView = UITableView(frame: CGRectZero, style: .Grouped)
         
@@ -65,10 +71,32 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.view.addSubview(tableView)
         
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: LOADING_MSG )
+        refreshControl.addTarget(self, action: "refreshAction:", forControlEvents: UIControlEvents.ValueChanged)
+        
+        tableView.addSubview(refreshControl)
+        tableView.sendSubviewToBack(refreshControl)
+        
         // AutoLayout
         
-        tableView.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsetsZero, excludingEdge: .Bottom)
-        tableView.autoPinToBottomLayoutGuideOfViewController(self, withInset: 0.0)
+        tableView.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsetsZero)
+    }
+    
+    // MARK: - Selector Methods
+    
+    func refreshAction(sender:AnyObject) {
+        APIClient.shared.authTeam(TOKEN) { (success, error) -> Void in
+            if (success) {
+                APIClient.shared.getUsers(TOKEN) { (success, error) -> Void in
+                    if(success) {
+                        self.tableView.reloadData()
+                        self.tableView.reloadInputViews()
+                        self.refreshControl.endRefreshing()
+                    }
+                }
+            }
+        }
     }
     
     // Mark: - TableView DataSource & Delegate Methods
@@ -93,17 +121,17 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell = MembersViewCell(reuseIdentifier: defaultReuseIdentifier)
         }
         
-        let user = users[indexPath.row]
+        let user = users[indexPath.row] as User!
         
-        cell.name.text = user.valueForKey("real_name") as? String
+        cell.name.text = user.real_name
         
-        let username = user.valueForKey("username") as? String
+        let username = user.username
         cell.username.text = "@\(username!)"
         
         cell.profileImage.image = UIImage(data: self.getImage(user, forCell: true))
         
-        let colorString = user.valueForKey("theme_color") as! String
-        cell.view.layer.borderColor = UIColor(hexString: colorString).CGColor
+        let colorString = user.theme_color
+        cell.view.layer.borderColor = UIColor(hexString: colorString!).CGColor
         
         
         return cell
@@ -112,9 +140,9 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
             
-        let user = users[indexPath.row]
-        let profile = user.valueForKey("profile") as! Profile
+        let user = users[indexPath.row] as User!
         
+        let profile = user.profile as Profile!
         let profileImage = UIImage(data:getImage(user, forCell: false))
         
         let profileController = ProfileViewController(profile: profile, img: profileImage)

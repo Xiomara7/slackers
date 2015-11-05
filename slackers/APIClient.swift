@@ -50,6 +50,11 @@ extension APIClient {
             }
             
             if let block = completion {
+                let defaults = NSUserDefaults.standardUserDefaults()
+                let team = String(response.json["team"])
+
+                defaults.setObject(team, forKey: "appTitle")
+                
                 block(success: true, error: nil)
             }
         }
