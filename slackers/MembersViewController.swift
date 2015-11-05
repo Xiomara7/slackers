@@ -28,8 +28,10 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
         APIClient.shared.authTeam(TOKEN) { (success, error) -> Void in
             if (success) {
                 APIClient.shared.getUsers(TOKEN) { (success, error) -> Void in
-                    self.tableView.reloadData()
-                    self.tableView.reloadInputViews()
+                    if(success) {
+                        self.tableView.reloadData()
+                        self.tableView.reloadInputViews()
+                    }
                 }
             }
         }
@@ -94,10 +96,15 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
         let user = users[indexPath.row]
         
         cell.name.text = user.valueForKey("real_name") as? String
-        cell.username.text = user.valueForKey("username") as? String
+        
+        let username = user.valueForKey("username") as? String
+        cell.username.text = "@\(username!)"
+        
+        cell.profileImage.image = UIImage(data: self.getImage(user, forCell: true))
         
         let colorString = user.valueForKey("theme_color") as! String
         cell.view.layer.borderColor = UIColor(hexString: colorString).CGColor
+        
         
         return cell
     }
@@ -108,8 +115,28 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
         let user = users[indexPath.row]
         let profile = user.valueForKey("profile") as! Profile
         
-        let profileController = ProfileViewController(profile: profile)
+        let profileImage = UIImage(data:getImage(user, forCell: false))
+        
+        let profileController = ProfileViewController(profile: profile, img: profileImage)
         self.presentViewController(profileController, animated: true, completion: nil)
+    }
+    
+    func getImage(user: NSManagedObject!, forCell: Bool) -> NSData {
+
+        let profile = user.valueForKey("profile") as! Profile!
+        
+        var urlString: String
+        
+        if(forCell) {
+            urlString = (profile.valueForKey("image_48") as? String)!
+        } else {
+            urlString = (profile.valueForKey("image_192") as? String)!
+        }
+        
+        let imageUrl = NSURL(string: urlString)
+        let data = NSData(contentsOfURL: imageUrl!)
+        
+        return data!
     }
 }
 

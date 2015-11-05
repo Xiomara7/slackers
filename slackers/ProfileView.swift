@@ -17,11 +17,11 @@ class ProfileView: UIView {
     var username: UILabel!
     var name: UILabel!
     var profileImage: UIImageView!
-    var status: UIImageView!
     var skype: UILabel!
     var phone: UILabel!
     var email: UILabel!
     var title: UILabel!
+    var closeButton: UIButton!
     
     init() {
         super.init(frame: CGRectZero)
@@ -38,11 +38,12 @@ class ProfileView: UIView {
         profileImage = UIImageView(frame: CGRectZero)
         
         profileImage.backgroundColor = UIColor.whiteColor()
+        profileImage.contentMode = UIViewContentMode.ScaleAspectFill
         profileImage.layer.borderColor = UIColor.grayColor().CGColor
         profileImage.layer.cornerRadius = defaultCornerRadius
         profileImage.layer.borderWidth = defaultBorderWidth
-        
-        
+        profileImage.layer.masksToBounds = true
+
         profileImage.autoSetDimension(.Height, toSize: profileImageSize)
         profileImage.autoSetDimension(.Width, toSize: profileImageSize)
         
@@ -57,6 +58,10 @@ class ProfileView: UIView {
         
         self.addSubview(username)
         
+        closeButton = UIButton(frame: CGRectZero)
+        closeButton.setImage(UIImage(named: IMG_CLOSE), forState: .Normal)
+        
+        self.addSubview(closeButton)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -67,6 +72,9 @@ class ProfileView: UIView {
         if shouldUpdateConstraints {
             
             banner.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsetsZero, excludingEdge: .Bottom)
+            
+            closeButton.autoPinEdgeToSuperviewEdge(.Top, withInset: 20.0)
+            closeButton.autoPinEdgeToSuperviewEdge(.Left, withInset: 20.0)
             
             profileImage.autoAlignAxis(.Vertical, toSameAxisOfView: banner)
             profileImage.autoPinEdge(.Top, toEdge: .Bottom, ofView: banner, withOffset: -profileImageSize / 3)

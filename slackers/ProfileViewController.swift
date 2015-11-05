@@ -14,10 +14,13 @@ class ProfileViewController: UIViewController {
     var profileView: ProfileView!
     var userProfile: Profile!
     
-    init(profile: Profile) {
+    var profileImage: UIImage!
+    
+    init(profile: Profile, img: UIImage?) {
         super.init(nibName: nil, bundle: nil)
         
         userProfile = profile
+        profileImage = img
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -26,17 +29,34 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.whiteColor()
+        
+        let user = userProfile.user as User!
         
         profileView = ProfileView()
         
-        profileView.name.text = userProfile.email
-        profileView.username.text = "@chris"
+        profileView.closeButton.addTarget(self,
+                                          action: Selector("dismissAction:"),
+                                          forControlEvents:.TouchUpInside)
+        
+        // Profile Info
+        profileView.name.text = user.real_name
+        profileView.username.text = "@\(user.username!)"
+        
+        profileView.banner.backgroundColor = UIColor(hexString: (user?.theme_color)!)
+        
+        profileView.profileImage.image = profileImage
         
         self.view.addSubview(profileView)
         
         // AutoLayout
         
-        profileView.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsetsZero)
+        profileView.autoPinToTopLayoutGuideOfViewController(self, withInset: 0.0)
+        profileView.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsetsZero, excludingEdge: .Top)
         
+    }
+
+    func dismissAction(sender: AnyObject?){
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

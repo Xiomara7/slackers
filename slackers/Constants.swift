@@ -25,12 +25,13 @@ let PROFILE_ENTITY = "Profile"
 // Images
 
 let IMG_BG = "background_img"
+let IMG_CLOSE = "close-icon"
 
 // Sizes
 
 let defaultscreenSize = UIScreen.mainScreen().bounds
 let defaultBorderWidth: CGFloat = 2.0
-let defaultCornerRadius: CGFloat = 5.0
+let defaultCornerRadius: CGFloat = 10.0
 let defaultCellHeight: CGFloat = 104.0
 let profileImageSize: CGFloat = 192.0
 

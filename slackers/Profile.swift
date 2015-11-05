@@ -21,7 +21,7 @@ class Profile: NSManagedObject {
     @NSManaged var image_72: String?
     @NSManaged var image_192: String?
     
-    @NSManaged var user: User?
+    @NSManaged var user: User!
     
 }
 

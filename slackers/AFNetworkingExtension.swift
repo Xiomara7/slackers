@@ -26,6 +26,16 @@ extension AFHTTPRequestOperationManager {
         )
     }
     
+    func getPath(path: String!, parameters: [String: AnyObject]?, completion: APIClientCompletionBlock) {
+        GET(
+            path,
+            parameters:
+            parameters,
+            success: successBlockWithCompletion(completion),
+            failure: failureBlockWithCompletion(completion)
+        )
+    }
+    
     func successBlockWithCompletion(completion: APIClientCompletionBlock) -> AFSuccessBlock {
         let block: AFSuccessBlock = { (operation, responseObject) in
             var json: JSON

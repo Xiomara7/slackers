@@ -27,7 +27,6 @@ class MembersViewCell: UITableViewCell {
         view = UIView(frame: CGRectMake(10.0, 10.0, defaultscreenSize.width - 20.0, 84.0))
         
         view.backgroundColor = UIColor.clearColor()
-//        view.layer.borderColor = UIColor.purpleColor().CGColor
         view.layer.borderWidth = defaultBorderWidth
         view.layer.cornerRadius = defaultCornerRadius
         
@@ -44,7 +43,9 @@ class MembersViewCell: UITableViewCell {
         profileImage = UIImageView(frame: CGRectZero)
         
         profileImage.backgroundColor = UIColor.grayColor()
+        profileImage.contentMode = UIViewContentMode.ScaleAspectFill
         profileImage.layer.cornerRadius = defaultCornerRadius
+        profileImage.layer.masksToBounds = true
         
         profileImage.autoSetDimension(.Height, toSize: 48.0)
         profileImage.autoSetDimension(.Width, toSize: 48.0)
@@ -75,6 +76,9 @@ class MembersViewCell: UITableViewCell {
             
             name.autoPinEdge(.Left, toEdge: .Right, ofView: profileImage, withOffset: inset)
             name.autoPinEdgeToSuperviewEdge(.Top, withInset: inset)
+            
+            username.autoPinEdge(.Top, toEdge: .Bottom, ofView: name, withOffset: inset)
+            username.autoPinEdge(.Left, toEdge: .Right, ofView: profileImage, withOffset: inset)
             
             shouldUpdateConstraints = false
         }

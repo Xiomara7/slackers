@@ -67,11 +67,10 @@ extension APIClient {
                 return
             }
             
-            let members = response.json["members"]
-            print(members)
-            DataManager.shared.saveMembers(members)
-            
             if let block = completion {
+                let members = response.json["members"]
+                DataManager.shared.saveMembers(members)
+                
                 block(success: true, error: nil)
             }
         }

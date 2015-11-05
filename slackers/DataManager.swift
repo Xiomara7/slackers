@@ -29,6 +29,8 @@ class DataManager {
                 userObject.real_name = String(member["real_name"])
                 
                 profileObject.email = String(member["profile"]["email"])
+                profileObject.image_48 = String(member["profile"]["image_48"])
+                profileObject.image_192 = String(member["profile"]["image_192"])
                 
                 userObject.profile = profileObject
                 
