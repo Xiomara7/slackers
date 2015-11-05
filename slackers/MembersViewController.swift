@@ -32,8 +32,7 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
             if (success) {
                 APIClient.shared.getUsers(TOKEN) { (success, error) -> Void in
                     if(success) {
-                        self.tableView.reloadData()
-                        self.tableView.reloadInputViews()
+                        self.fetchData()
                     }
                 }
             }
@@ -42,18 +41,7 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        let fetchRequest = NSFetchRequest(entityName: USER_ENTITY)
-        
-        do {
-            let results =
-            try DELEGATE.managedObjectContext.executeFetchRequest(fetchRequest)
-            
-            users = results as! [User!]
-            
-        } catch let error as NSError {
-            print("\(FETCH_ERR)\(error),\(error.userInfo)")
-        }
+        self.fetchData()
     }
     
     override func viewDidLoad() {
@@ -96,6 +84,23 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
                     }
                 }
             }
+        }
+    }
+    
+    func fetchData() {
+        let fetchRequest = NSFetchRequest(entityName: USER_ENTITY)
+        
+        do {
+            let results =
+            try DELEGATE.managedObjectContext.executeFetchRequest(fetchRequest)
+            
+            users = results as! [User!]
+
+            self.tableView.reloadData()
+            self.tableView.reloadInputViews()
+            
+        } catch let error as NSError {
+            print("\(FETCH_ERR)\(error),\(error.userInfo)")
         }
     }
     
