@@ -17,6 +17,6 @@ More information about cocoapods can be found at [http://cocoapods.org](http://c
 
 #### Screenshots
 
-![image](https://cloud.githubusercontent.com/assets/3449724/10978710/c1fc03be-83ce-11e5-8570-b67c28bcc9e9.png)
-![image](https://cloud.githubusercontent.com/assets/3449724/10978711/c5c28946-83ce-11e5-9154-21f9a8ffbb1d.png)
-![image](https://cloud.githubusercontent.com/assets/3449724/10978715/c73331ae-83ce-11e5-89ab-f3277aa2687a.png)
+![image](https://cloud.githubusercontent.com/assets/3449724/10978861/8e4470d2-83cf-11e5-89c6-027df3cf96fb.png)
+![image](https://cloud.githubusercontent.com/assets/3449724/10978863/8f64e500-83cf-11e5-81c2-68446ac4f9aa.png)
+![image](https://cloud.githubusercontent.com/assets/3449724/10978864/9068d2fe-83cf-11e5-9888-ab0b50d57e38.png)
