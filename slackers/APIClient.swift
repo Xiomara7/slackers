@@ -34,3 +34,42 @@ class APIClient: AFHTTPRequestOperationManager {
     }
 }
 
+extension APIClient {
+    
+    func authTeam(token: String, completion: ((success: Bool, error: NSError?) -> Void)?) {
+        let path = authPath
+        let parameters = ["token": token]
+        
+        postPath(path, parameters: parameters) { (operation, response) in
+            if let error = response.error {
+                if let block = completion {
+                    block(success: false, error: error)
+                }
+                return
+            }
+            
+            if let block = completion {
+                block(success: true, error: nil)
+            }
+        }
+    }
+    
+    func getUsers(token: String, completion: ((success: Bool, error: NSError?) -> Void)?) {
+        let path = usersPath
+        let parameters = ["token": token]
+        
+        postPath(path, parameters: parameters) { (operation, response) in
+            if let error = response.error {
+                if let block = completion {
+                    block(success: false, error: error)
+                }
+                return
+            }
+            
+            if let block = completion {
+                block(success: true, error: nil)
+            }
+        }
+    }
+}
+
