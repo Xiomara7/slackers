@@ -12,6 +12,13 @@ let productionUrl = "https://slack.com/api/"
 let authPath = "auth.test"
 let usersPath = "users.list"
 
+let DELEGATE = UIApplication.sharedApplication().delegate as! AppDelegate
+
+// Entities
+
+let USER_ENTITY = "User"
+let PROFILE_ENTITY = "Profile"
+
 // Images
 
 let IMG_BG = "background_img"
@@ -26,4 +33,14 @@ let defaultCellHeight: CGFloat = 104.0
 // Cells
 
 let defaultReuseIdentifier = "Cell"
+
+// errors
+
+let FETCH_ERR = "Could not fetch "
+let SAVE_ERR = "Failure to save context "
+
+
+
+
+
 
