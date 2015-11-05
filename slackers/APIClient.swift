@@ -57,9 +57,9 @@ extension APIClient {
     
     func getUsers(token: String, completion: ((success: Bool, error: NSError?) -> Void)?) {
         let path = USERS_PATH
-        let parameters = ["token": token]
+        let parameters = ["token": token, "presence": 1]
         
-        postPath(path, parameters: parameters) { (operation, response) in
+        postPath(path, parameters: parameters as! [String : AnyObject]) { (operation, response) in
             if let error = response.error {
                 if let block = completion {
                     block(success: false, error: error)

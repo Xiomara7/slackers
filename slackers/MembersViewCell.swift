@@ -27,6 +27,7 @@ class MembersViewCell: UITableViewCell {
         view = UIView(frame: CGRectMake(10.0, 10.0, defaultscreenSize.width - 20.0, 84.0))
         
         view.backgroundColor = UIColor.clearColor()
+        view.layer.borderColor = UIColor.purpleColor().CGColor
         view.layer.borderWidth = defaultBorderWidth
         view.layer.cornerRadius = defaultCornerRadius
         
