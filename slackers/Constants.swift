@@ -8,6 +8,12 @@
 
 import Foundation
 
+let productionUrl = "https://slack.com/api/"
+let authPath = "auth.test"
+let usersPath = "users.list"
+
+// Images
+
 let IMG_BG = "background_img"
 
 // Sizes
