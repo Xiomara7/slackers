@@ -60,7 +60,7 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell = MembersViewCell(reuseIdentifier: defaultReuseIdentifier)
         }
         
-        cell.textLabel?.text = "Xiomara"
+        cell.name.text = "Xiomara"
         
         return cell
     }
