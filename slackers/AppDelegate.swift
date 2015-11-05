@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window?.translatesAutoresizingMaskIntoConstraints = true
+        window?.removeConstraints((window?.constraints)!)
         
         let controller = MembersViewController()
         let navController = UINavigationController(rootViewController: controller)

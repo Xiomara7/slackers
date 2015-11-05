@@ -14,8 +14,8 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
     var tableView: UITableView!
     var users = [User!]()
 
-    var loadingImage: UIImageView!
     var refreshControl:UIRefreshControl!
+    var shouldUpdateConstraints = true
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -48,6 +48,7 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         
         tableView = UITableView(frame: CGRectZero, style: .Grouped)
+        tableView.translatesAutoresizingMaskIntoConstraints = true
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -64,8 +65,11 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.view.addSubview(tableView)
         
         // AutoLayout
-        
-        tableView.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsetsZero)
+        if(shouldUpdateConstraints) {
+            tableView.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsetsZero)
+
+            shouldUpdateConstraints = false
+        }
     }
     
     // MARK: - Selector Methods
@@ -129,7 +133,6 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
         let user = users[indexPath.row] as User!
         
         cell.name.text = user.real_name
-        
         cell.username.text = "@\(user.username!)"
         cell.profileImage.image = user.cell_img
         

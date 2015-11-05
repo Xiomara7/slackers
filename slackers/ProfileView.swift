@@ -33,7 +33,7 @@ class ProfileView: UIView {
         self.backgroundColor = UIColor.whiteColor()
         
         banner = UIView(frame: CGRectZero)
-        
+        banner.translatesAutoresizingMaskIntoConstraints = true
         banner.backgroundColor = UIColor.grayColor()
         banner.autoSetDimension(.Height, toSize: defaultCellHeight)
         
@@ -41,6 +41,7 @@ class ProfileView: UIView {
         self.sendSubviewToBack(banner)
         
         profileImage = UIImageView(frame: CGRectZero)
+        profileImage.translatesAutoresizingMaskIntoConstraints = true
         
         profileImage.backgroundColor = UIColor.whiteColor()
         profileImage.contentMode = UIViewContentMode.ScaleAspectFill

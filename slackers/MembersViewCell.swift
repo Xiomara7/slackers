@@ -22,8 +22,10 @@ class MembersViewCell: UITableViewCell {
         super.init(style: .Default, reuseIdentifier: reuseIdentifier)
         
         self.backgroundColor = UIColor.clearColor()
+        self.translatesAutoresizingMaskIntoConstraints = true
         
-        view = UIView(frame: CGRectMake(10.0, 10.0, defaultscreenSize.width - 20.0, 84.0))
+        view = UIView(frame: CGRectZero)
+        view.translatesAutoresizingMaskIntoConstraints = true
         
         view.backgroundColor = UIColor.clearColor()
         view.layer.borderWidth = defaultBorderWidth
@@ -32,16 +34,20 @@ class MembersViewCell: UITableViewCell {
         self.contentView.addSubview(view)
         
         username = UILabel(frame: CGRectZero)
+        username.translatesAutoresizingMaskIntoConstraints = true
+        
         username.font = UIFont(name: userFontName, size: 16.0)
         
         view.addSubview(username)
         
         name = UILabel(frame: CGRectZero)
+        name.translatesAutoresizingMaskIntoConstraints = true
         name.font = UIFont(name: nameFontName, size: 22.0)
         
         view.addSubview(name)
         
         profileImage = UIImageView(frame: CGRectZero)
+        profileImage.translatesAutoresizingMaskIntoConstraints = true
         
         profileImage.backgroundColor = UIColor.grayColor()
         profileImage.contentMode = UIViewContentMode.ScaleAspectFill
@@ -54,6 +60,7 @@ class MembersViewCell: UITableViewCell {
         view.addSubview(profileImage)
         
         isAdminLabel = UILabel(frame: CGRectZero)
+        isAdminLabel.translatesAutoresizingMaskIntoConstraints = true
         isAdminLabel.font = UIFont(name: userFontName, size: 14.0)
         
         view.addSubview(isAdminLabel)
@@ -72,6 +79,8 @@ class MembersViewCell: UITableViewCell {
         if shouldUpdateConstraints {
             
             let inset: CGFloat = 10.0
+            
+            view.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsetsMake(inset, inset, inset, inset))
             
             profileImage.autoPinEdgeToSuperviewEdge(.Top, withInset: inset)
             profileImage.autoPinEdgeToSuperviewEdge(.Left, withInset: inset)
