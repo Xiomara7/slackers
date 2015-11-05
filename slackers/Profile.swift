@@ -24,6 +24,8 @@ class Profile: NSManagedObject {
     @NSManaged var image_72: String?
     @NSManaged var image_192: String?
     
+    @NSManaged var profile_img: UIImage?
+    
     @NSManaged var user: User!
     
 }

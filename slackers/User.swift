@@ -16,5 +16,7 @@ class User: NSManagedObject {
     @NSManaged var user_id: String?
     @NSManaged var username: String?
     @NSManaged var real_name: String?
+    @NSManaged var cell_img: UIImage?
+    
     @NSManaged var profile: Profile!
 }

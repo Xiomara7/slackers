@@ -131,7 +131,7 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.name.text = user.real_name
         
         cell.username.text = "@\(user.username!)"
-        cell.profileImage.image = UIImage(data: self.getImage(user, forCell: true))
+        cell.profileImage.image = user.cell_img
         
         if((user.is_admin) == 1) {
             cell.isAdminLabel.text = ADMIN
@@ -148,30 +148,10 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
             
         let user = users[indexPath.row] as User!
-        
         let profile = user.profile as Profile!
-        let profileImage = UIImage(data:getImage(user, forCell: false))
         
-        let profileController = ProfileViewController(profile: profile, img: profileImage)
+        let profileController = ProfileViewController(profile: profile, img: profile.profile_img)
         self.presentViewController(profileController, animated: true, completion: nil)
-    }
-    
-    func getImage(user: NSManagedObject!, forCell: Bool) -> NSData {
-
-        let profile = user.valueForKey("profile") as! Profile!
-        
-        var urlString: String
-        
-        if(forCell) {
-            urlString = (profile.valueForKey("image_48") as? String)!
-        } else {
-            urlString = (profile.valueForKey("image_192") as? String)!
-        }
-        
-        let imageUrl = NSURL(string: urlString)
-        let data = NSData(contentsOfURL: imageUrl!)
-        
-        return data!
     }
 }
 

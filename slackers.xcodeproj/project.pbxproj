@@ -126,17 +126,17 @@
 			isa = PBXGroup;
 			children = (
 				0A1FB59E1BEAFB3F006656FA /* Singletons */,
+				0A1FB5961BEAED61006656FA /* Constants */,
 				0A1FB59F1BEAFB52006656FA /* HTTPRequests */,
 				0A1FB59A1BEAF086006656FA /* Views */,
-				0A1FB5961BEAED61006656FA /* Constants */,
 				0A1FB5931BEAEC3E006656FA /* Controllers */,
 				0A1FB5A91BEAFF3B006656FA /* DataManager */,
 				0A1FB5A21BEAFC7C006656FA /* Extensions */,
+				0A1FB5A51BEAFCEC006656FA /* Libraries */,
 				0A1FB56C1BEAE69F006656FA /* Assets.xcassets */,
 				0A1FB5711BEAE69F006656FA /* Info.plist */,
 				0A1FB5691BEAE69F006656FA /* slackers.xcdatamodeld */,
 				0A1FB5991BEAEE3A006656FA /* slackers-Bridging-Header.h */,
-				0A1FB5A51BEAFCEC006656FA /* Libraries */,
 			);
 			path = slackers;
 			sourceTree = "<group>";

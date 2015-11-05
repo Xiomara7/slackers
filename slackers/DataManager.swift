@@ -37,6 +37,13 @@ class DataManager {
                 profileObject.image_48 = String(member["profile"]["image_48"])
                 profileObject.image_192 = String(member["profile"]["image_192"])
                 
+                // Load Images with urlString
+                let cellImage = self.getImage(profileObject.image_48, forCell: true)
+                let profileImage = self.getImage(profileObject.image_192, forCell: false)
+                
+                profileObject.profile_img = UIImage(data: profileImage)
+                userObject.cell_img = UIImage(data: cellImage)
+                
                 userObject.profile = profileObject
                 
                 do {
@@ -67,6 +74,14 @@ class DataManager {
             print("\(FETCH_ERR)\(error),\(error.userInfo)")
         }
         return false
+    }
+    
+    func getImage(urlString: String?, forCell: Bool) -> NSData {
+        
+        let imageUrl = NSURL(string: urlString!)
+        let data = NSData(contentsOfURL: imageUrl!)
+        
+        return data!
     }
     
     class var shared: DataManager {
