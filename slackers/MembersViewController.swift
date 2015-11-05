@@ -47,9 +47,6 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let defaults = NSUserDefaults.standardUserDefaults()
-        self.title = defaults.valueForKey("appTitle") as? String
-        
         tableView = UITableView(frame: CGRectZero, style: .Grouped)
         
         tableView.delegate = self
@@ -57,14 +54,14 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         tableView.backgroundView = UIImageView(image: UIImage(named: IMG_BG))
         
-        self.view.addSubview(tableView)
-        
         refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = NSAttributedString(string: LOADING_MSG )
+        refreshControl.attributedTitle = NSAttributedString(string: LOADING_MSG)
         refreshControl.addTarget(self, action: "refreshAction:", forControlEvents: UIControlEvents.ValueChanged)
         
         tableView.addSubview(refreshControl)
         tableView.sendSubviewToBack(refreshControl)
+        
+        self.view.addSubview(tableView)
         
         // AutoLayout
         
@@ -88,6 +85,9 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func fetchData() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        self.title = defaults.valueForKey("appTitle") as? String
+        
         let fetchRequest = NSFetchRequest(entityName: USER_ENTITY)
         
         do {
@@ -95,7 +95,7 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
             try DELEGATE.managedObjectContext.executeFetchRequest(fetchRequest)
             
             users = results as! [User!]
-
+            
             self.tableView.reloadData()
             self.tableView.reloadInputViews()
             
