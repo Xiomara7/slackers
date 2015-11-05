@@ -32,10 +32,12 @@ class MembersViewCell: UITableViewCell {
         self.contentView.addSubview(view)
         
         username = UILabel(frame: CGRectZero)
+        username.font = UIFont(name: userFontName, size: 16.0)
         
         view.addSubview(username)
         
         name = UILabel(frame: CGRectZero)
+        name.font = UIFont(name: nameFontName, size: 22.0)
         
         view.addSubview(name)
         
@@ -52,8 +54,7 @@ class MembersViewCell: UITableViewCell {
         view.addSubview(profileImage)
         
         isAdminLabel = UILabel(frame: CGRectZero)
-        isAdminLabel.textColor = UIColor.grayColor()
-        isAdminLabel.font = UIFont(name: "Hervetica", size: 8.0)
+        isAdminLabel.font = UIFont(name: userFontName, size: 14.0)
         
         view.addSubview(isAdminLabel)
         

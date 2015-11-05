@@ -130,7 +130,6 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         cell.name.text = user.real_name
         
-        let username = user.username
         cell.username.text = "@\(user.username!)"
         cell.profileImage.image = UIImage(data: self.getImage(user, forCell: true))
         

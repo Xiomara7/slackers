@@ -38,6 +38,13 @@ let profileImageSize: CGFloat = 192.0
 // Cells
 
 let defaultReuseIdentifier = "Cell"
+
+// Fonts 
+
+let userFontName = "HelveticaNeue-UltraLightItalic"
+let nameFontName = "HelveticaNeue-Medium"
+let normalFontName = "HelveticaNeue"
+
 let ADMIN = "admin"
 
 // errors

@@ -42,6 +42,11 @@ class ProfileViewController: UIViewController {
         // Profile Info
         profileView.name.text = user.real_name
         profileView.username.text = "@\(user.username!)"
+
+        profileView.title.text = userProfile.title
+        profileView.email.text = userProfile.email
+        profileView.phone.text = userProfile.phone
+        profileView.skype.text = userProfile.skype
         
         profileView.banner.backgroundColor = UIColor(hexString: (user?.theme_color)!)
         

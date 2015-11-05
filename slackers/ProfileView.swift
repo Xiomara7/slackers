@@ -51,12 +51,26 @@ class ProfileView: UIView {
         self.bringSubviewToFront(profileImage)
         
         name = UILabel(frame: CGRectZero)
+        name.font = UIFont(name: nameFontName, size: 24.0)
         
         self.addSubview(name)
         
         username = UILabel(frame: CGRectZero)
-        
+        username.font = UIFont(name: userFontName, size: 14.0)
         self.addSubview(username)
+        
+        title = UILabel(frame: CGRectZero)
+        self.addSubview(title)
+        
+        email = UILabel(frame: CGRectZero)
+        email.font = UIFont(name: normalFontName, size: 14.0)
+        self.addSubview(email)
+        
+        phone = UILabel(frame: CGRectZero)
+        self.addSubview(phone)
+        
+        skype = UILabel(frame: CGRectZero)
+        self.addSubview(skype)
         
         closeButton = UIButton(frame: CGRectZero)
         closeButton.setImage(UIImage(named: IMG_CLOSE), forState: .Normal)
@@ -84,6 +98,18 @@ class ProfileView: UIView {
             
             username.autoPinEdge(.Top, toEdge: .Bottom, ofView: name, withOffset: 5.0)
             username.autoAlignAxis(.Vertical, toSameAxisOfView: name)
+            
+            title.autoPinEdge(.Top, toEdge: .Bottom, ofView: username, withOffset: 5.0)
+            title.autoAlignAxis(.Vertical, toSameAxisOfView: username)
+            
+            email.autoPinEdge(.Top, toEdge: .Bottom, ofView: title, withOffset: 44.0)
+            email.autoPinEdgeToSuperviewEdge(.Left, withInset: 20.0)
+            
+            phone.autoPinEdge(.Top, toEdge: .Bottom, ofView: email, withOffset: 10.0)
+            phone.autoPinEdgeToSuperviewEdge(.Left, withInset: 20.0)
+            
+            skype.autoPinEdge(.Top, toEdge: .Bottom, ofView: phone, withOffset: 10.0)
+            skype.autoPinEdgeToSuperviewEdge(.Left, withInset: 20.0)
             
             shouldUpdateConstraints = false
         }
