@@ -16,6 +16,8 @@
 		0A1FB5981BEAED72006656FA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1FB5971BEAED72006656FA /* Constants.swift */; settings = {ASSET_TAGS = (); }; };
 		0A1FB59D1BEAF0B9006656FA /* MembersViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1FB59C1BEAF0B9006656FA /* MembersViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		0A1FB5A11BEAFB73006656FA /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1FB5A01BEAFB73006656FA /* APIClient.swift */; settings = {ASSET_TAGS = (); }; };
+		0A1FB5A41BEAFC96006656FA /* AFNetworkingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1FB5A31BEAFC96006656FA /* AFNetworkingExtension.swift */; settings = {ASSET_TAGS = (); }; };
+		0A1FB5A81BEAFD07006656FA /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1FB5A71BEAFD07006656FA /* SwiftyJSON.swift */; settings = {ASSET_TAGS = (); }; };
 		1C28C52A52CF628AB5D8CE34 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D09A268A09255563540B033F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,8 @@
 		0A1FB5991BEAEE3A006656FA /* slackers-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "slackers-Bridging-Header.h"; sourceTree = "<group>"; };
 		0A1FB59C1BEAF0B9006656FA /* MembersViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersViewCell.swift; sourceTree = "<group>"; };
 		0A1FB5A01BEAFB73006656FA /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		0A1FB5A31BEAFC96006656FA /* AFNetworkingExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFNetworkingExtension.swift; sourceTree = "<group>"; };
+		0A1FB5A71BEAFD07006656FA /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		250D6F08B2050D1528390427 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B116B3853AD523938FE41FFE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D09A268A09255563540B033F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,10 +118,12 @@
 				0A1FB59A1BEAF086006656FA /* Views */,
 				0A1FB5961BEAED61006656FA /* Constants */,
 				0A1FB5931BEAEC3E006656FA /* Controllers */,
+				0A1FB5A21BEAFC7C006656FA /* Extensions */,
 				0A1FB56C1BEAE69F006656FA /* Assets.xcassets */,
 				0A1FB5711BEAE69F006656FA /* Info.plist */,
 				0A1FB5691BEAE69F006656FA /* slackers.xcdatamodeld */,
 				0A1FB5991BEAEE3A006656FA /* slackers-Bridging-Header.h */,
+				0A1FB5A51BEAFCEC006656FA /* Libraries */,
 			);
 			path = slackers;
 			sourceTree = "<group>";
@@ -186,6 +192,31 @@
 				0A1FB5A01BEAFB73006656FA /* APIClient.swift */,
 			);
 			name = HTTPRequests;
+			sourceTree = "<group>";
+		};
+		0A1FB5A21BEAFC7C006656FA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0A1FB5A31BEAFC96006656FA /* AFNetworkingExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		0A1FB5A51BEAFCEC006656FA /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				0A1FB5A61BEAFCFA006656FA /* SwiftyJSON */,
+			);
+			name = Libraries;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		0A1FB5A61BEAFCFA006656FA /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				0A1FB5A71BEAFD07006656FA /* SwiftyJSON.swift */,
+			);
+			name = SwiftyJSON;
 			sourceTree = "<group>";
 		};
 		4E3522D2610DCCFE21D944C3 /* Frameworks */ = {
@@ -384,8 +415,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A1FB5A41BEAFC96006656FA /* AFNetworkingExtension.swift in Sources */,
 				0A1FB56B1BEAE69F006656FA /* slackers.xcdatamodeld in Sources */,
 				0A1FB59D1BEAF0B9006656FA /* MembersViewCell.swift in Sources */,
+				0A1FB5A81BEAFD07006656FA /* SwiftyJSON.swift in Sources */,
 				0A1FB5951BEAEC4E006656FA /* MembersViewController.swift in Sources */,
 				0A1FB5631BEAE69E006656FA /* AppDelegate.swift in Sources */,
 				0A1FB5981BEAED72006656FA /* Constants.swift in Sources */,
