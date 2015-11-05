@@ -12,6 +12,9 @@
 		0A1FB56D1BEAE69F006656FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A1FB56C1BEAE69F006656FA /* Assets.xcassets */; };
 		0A1FB57B1BEAE69F006656FA /* slackersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1FB57A1BEAE69F006656FA /* slackersTests.swift */; };
 		0A1FB5861BEAE69F006656FA /* slackersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1FB5851BEAE69F006656FA /* slackersUITests.swift */; };
+		0A1FB5951BEAEC4E006656FA /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1FB5941BEAEC4E006656FA /* MembersViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		0A1FB5981BEAED72006656FA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1FB5971BEAED72006656FA /* Constants.swift */; settings = {ASSET_TAGS = (); }; };
+		0A1FB59D1BEAF0B9006656FA /* MembersViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1FB59C1BEAF0B9006656FA /* MembersViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		1C28C52A52CF628AB5D8CE34 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D09A268A09255563540B033F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +47,10 @@
 		0A1FB5811BEAE69F006656FA /* slackersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = slackersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A1FB5851BEAE69F006656FA /* slackersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = slackersUITests.swift; sourceTree = "<group>"; };
 		0A1FB5871BEAE69F006656FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A1FB5941BEAEC4E006656FA /* MembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
+		0A1FB5971BEAED72006656FA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0A1FB5991BEAEE3A006656FA /* slackers-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "slackers-Bridging-Header.h"; sourceTree = "<group>"; };
+		0A1FB59C1BEAF0B9006656FA /* MembersViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersViewCell.swift; sourceTree = "<group>"; };
 		250D6F08B2050D1528390427 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B116B3853AD523938FE41FFE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D09A268A09255563540B033F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,10 +107,14 @@
 		0A1FB5611BEAE69E006656FA /* slackers */ = {
 			isa = PBXGroup;
 			children = (
+				0A1FB59A1BEAF086006656FA /* Views */,
+				0A1FB5961BEAED61006656FA /* Constants */,
+				0A1FB5931BEAEC3E006656FA /* Controllers */,
 				0A1FB5621BEAE69E006656FA /* AppDelegate.swift */,
 				0A1FB56C1BEAE69F006656FA /* Assets.xcassets */,
 				0A1FB5711BEAE69F006656FA /* Info.plist */,
 				0A1FB5691BEAE69F006656FA /* slackers.xcdatamodeld */,
+				0A1FB5991BEAEE3A006656FA /* slackers-Bridging-Header.h */,
 			);
 			path = slackers;
 			sourceTree = "<group>";
@@ -124,6 +135,38 @@
 				0A1FB5871BEAE69F006656FA /* Info.plist */,
 			);
 			path = slackersUITests;
+			sourceTree = "<group>";
+		};
+		0A1FB5931BEAEC3E006656FA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0A1FB5941BEAEC4E006656FA /* MembersViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		0A1FB5961BEAED61006656FA /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				0A1FB5971BEAED72006656FA /* Constants.swift */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		0A1FB59A1BEAF086006656FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0A1FB59B1BEAF08F006656FA /* Cells */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		0A1FB59B1BEAF08F006656FA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0A1FB59C1BEAF0B9006656FA /* MembersViewCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		4E3522D2610DCCFE21D944C3 /* Frameworks */ = {
@@ -323,7 +366,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A1FB56B1BEAE69F006656FA /* slackers.xcdatamodeld in Sources */,
+				0A1FB59D1BEAF0B9006656FA /* MembersViewCell.swift in Sources */,
+				0A1FB5951BEAEC4E006656FA /* MembersViewController.swift in Sources */,
 				0A1FB5631BEAE69E006656FA /* AppDelegate.swift in Sources */,
+				0A1FB5981BEAED72006656FA /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +445,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "slackers/slackers-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -436,6 +483,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "slackers/slackers-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
