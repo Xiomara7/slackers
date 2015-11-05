@@ -16,7 +16,6 @@ class MembersViewCell: UITableViewCell {
     var username: UILabel!
     var name: UILabel!
     var profileImage: UIImageView!
-    var status: UIImageView!
     var isAdminLabel: UILabel!
     
     init(reuseIdentifier: String?) {
@@ -53,6 +52,8 @@ class MembersViewCell: UITableViewCell {
         view.addSubview(profileImage)
         
         isAdminLabel = UILabel(frame: CGRectZero)
+        isAdminLabel.textColor = UIColor.grayColor()
+        isAdminLabel.font = UIFont(name: "Hervetica", size: 8.0)
         
         view.addSubview(isAdminLabel)
         
@@ -79,6 +80,9 @@ class MembersViewCell: UITableViewCell {
             
             username.autoPinEdge(.Top, toEdge: .Bottom, ofView: name, withOffset: inset)
             username.autoPinEdge(.Left, toEdge: .Right, ofView: profileImage, withOffset: inset)
+            
+            isAdminLabel.autoPinEdgeToSuperviewEdge(.Right, withInset: 10.0)
+            isAdminLabel.autoPinEdgeToSuperviewEdge(.Bottom, withInset: 10.0)
             
             shouldUpdateConstraints = false
         }

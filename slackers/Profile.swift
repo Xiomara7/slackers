@@ -14,6 +14,9 @@ class Profile: NSManagedObject {
     @NSManaged var email: String?
     @NSManaged var phone: String?
     @NSManaged var skype: String?
+    @NSManaged var title: String?
+    @NSManaged var tz_label: String?
+    @NSManaged var tz: String?
     
     @NSManaged var image_24: String?
     @NSManaged var image_32: String?

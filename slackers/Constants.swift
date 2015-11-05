@@ -38,6 +38,7 @@ let profileImageSize: CGFloat = 192.0
 // Cells
 
 let defaultReuseIdentifier = "Cell"
+let ADMIN = "admin"
 
 // errors
 
