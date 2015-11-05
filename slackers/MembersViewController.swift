@@ -101,6 +101,12 @@ class MembersViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            
+        let user = users[indexPath.row]
+        let profile = user.valueForKey("profile") as! Profile
+        
+        let profileController = ProfileViewController(profile: profile)
+        self.presentViewController(profileController, animated: true, completion: nil)
     }
 }
 

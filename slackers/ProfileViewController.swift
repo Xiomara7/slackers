@@ -7,29 +7,36 @@
 //
 
 import UIKit
+import CoreData
 
 class ProfileViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    var profileView: ProfileView!
+    var userProfile: Profile!
+    
+    init(profile: Profile) {
+        super.init(nibName: nil, bundle: nil)
+        
+        userProfile = profile
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-    */
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        profileView = ProfileView()
+        
+        profileView.name.text = userProfile.email
+        profileView.username.text = "@chris"
+        
+        self.view.addSubview(profileView)
+        
+        // AutoLayout
+        
+        profileView.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsetsZero)
+        
+    }
 }

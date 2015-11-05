@@ -23,6 +23,7 @@
 		0A1FB5AF1BEAFFEF006656FA /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1FB5AE1BEAFFEF006656FA /* DataManager.swift */; settings = {ASSET_TAGS = (); }; };
 		0A1FB5B11BEB071F006656FA /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1FB5B01BEB071F006656FA /* UIColorExtension.swift */; settings = {ASSET_TAGS = (); }; };
 		0A1FB5B31BEB0F35006656FA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1FB5B21BEB0F35006656FA /* ProfileViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		0A1FB5B51BEB0F6C006656FA /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1FB5B41BEB0F6C006656FA /* ProfileView.swift */; settings = {ASSET_TAGS = (); }; };
 		1C28C52A52CF628AB5D8CE34 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D09A268A09255563540B033F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		0A1FB5AE1BEAFFEF006656FA /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		0A1FB5B01BEB071F006656FA /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		0A1FB5B21BEB0F35006656FA /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		0A1FB5B41BEB0F6C006656FA /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		250D6F08B2050D1528390427 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B116B3853AD523938FE41FFE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D09A268A09255563540B033F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				0A1FB59B1BEAF08F006656FA /* Cells */,
+				0A1FB5B41BEB0F6C006656FA /* ProfileView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				0A1FB5981BEAED72006656FA /* Constants.swift in Sources */,
 				0A1FB5B31BEB0F35006656FA /* ProfileViewController.swift in Sources */,
 				0A1FB5A11BEAFB73006656FA /* APIClient.swift in Sources */,
+				0A1FB5B51BEB0F6C006656FA /* ProfileView.swift in Sources */,
 				0A1FB5B11BEB071F006656FA /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
